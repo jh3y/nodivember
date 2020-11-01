@@ -1,0 +1,50 @@
+:root {
+  --unit: 2vmin;
+  --grey: hsla(0, 0%, 20%, 0.25);
+  --base: red;
+  --trim: blue;
+  --jug: yellow;
+  --bg: hsla(200, 30%, 80%, 0.2);
+}
+
+body:before {
+  --body--main: linear-gradient(var(--grey), var(--grey)) calc(var(--unit) * 5) calc(var(--unit) * 23) / calc(var(--unit) * 16) calc(var(--unit) * 10.5);
+  --body--top: linear-gradient(var(--base), var(--base)) calc(var(--unit) * 8) calc(var(--unit) * 21) / calc(var(--unit) * 10) calc(var(--unit) * 2);
+  --feet: linear-gradient(90deg, var(--base) 10%, transparent 10% 90%, var(--base) 90%) calc(var(--unit) * 6) calc(var(--unit) * 33) / calc(var(--unit) * 14) calc(var(--unit) * 1);
+  --trim--top: linear-gradient(var(--trim), var(--trim)) calc(var(--unit) * 5) calc(var(--unit) * 23) / calc(var(--unit) * 16) calc(var(--unit) * 1);
+  --trim--bottom: linear-gradient(var(--trim), var(--trim)) calc(var(--unit) * 5) calc(var(--unit) * 32.5) / calc(var(--unit) * 16) calc(var(--unit) * 1);
+  --jug--main: linear-gradient(var(--jug), var(--jug)) calc(var(--unit) * 8) calc(var(--unit) * 4) / calc(var(--unit) * 10) calc(var(--unit) * 18);
+  background:
+    var(--body--main),
+    var(--jug--main),
+    var(--body--top),
+    var(--trim--top),
+    var(--trim--bottom),
+    var(--feet),
+    var(--bg);
+  content: "";
+  background-repeat: no-repeat;
+  height: calc(34 * var(--unit));
+  width: calc(26 * var(--unit));
+  z-index: 5;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  position: fixed;
+  height: calc(45 * var(--unit));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+/* Maybe shake by adjusting the background position of everything slightly? */
+/* @keyframes shake {
+  0% {
+    background-position: 1px;
+  }
+} */
