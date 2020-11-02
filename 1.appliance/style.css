@@ -1,10 +1,19 @@
 :root {
-  --unit: 2vmin;
-  --grey: hsla(0, 0%, 20%, 0.25);
-  --base: red;
-  --trim: blue;
-  --jug: yellow;
-  --bg: hsla(200, 30%, 80%, 0.2);
+  --unit: 1vmin;
+  --grey: hsla(0, 0%, 20%, 1);
+  --base: hsl(0, 0%, 25%);
+  --trim: hsl(0, 0%, 90%);
+  --jug: hsla(280, 60%, 50%, 1);
+  --juice: orange;
+  --bg: hsla(200, 30%, 80%, 1);
+  --bg-two: hsl(0, 0%, 99%);
+  --lid: hsl(0, 0%, 15%);
+  --control: hsl(0, 0%, 35%);
+  --button: hsl(0, 0%, 20%);
+  --led: hsl(100, 80%, 60%);
+  --plate: hsl(0, 0%, 80%);
+  --shimmer: hsla(0, 0%, 100%, 0.25);
+  --eye: hsl(0, 0%, 10%);
 }
 
 body:before {
@@ -14,14 +23,71 @@ body:before {
   --trim--top: linear-gradient(var(--trim), var(--trim)) calc(var(--unit) * 5) calc(var(--unit) * 23) / calc(var(--unit) * 16) calc(var(--unit) * 1);
   --trim--bottom: linear-gradient(var(--trim), var(--trim)) calc(var(--unit) * 5) calc(var(--unit) * 32.5) / calc(var(--unit) * 16) calc(var(--unit) * 1);
   --jug--main: linear-gradient(var(--jug), var(--jug)) calc(var(--unit) * 8) calc(var(--unit) * 4) / calc(var(--unit) * 10) calc(var(--unit) * 18);
+  --jug--left: linear-gradient(-98deg, var(--jug) 0 50%, transparent 50% 100%) calc(var(--unit) * 6.25) calc(var(--unit) * 4) / calc(var(--unit) * 2) calc(var(--unit) * 18);
+  --jug--right: linear-gradient(98deg, var(--jug) 0 50%, transparent 50% 100%) calc(var(--unit) * 17.75) calc(var(--unit) * 4) / calc(var(--unit) * 2) calc(var(--unit) * 18);
+  --jug--spout: linear-gradient(-135deg, var(--jug) 0 50%, transparent 50% 100%) calc(var(--unit) * 5) calc(var(--unit) * 4) / calc(var(--unit) * 1.5) calc(var(--unit) * 2);
+  --jug--lid: linear-gradient(var(--lid), var(--lid)) calc(var(--unit) * 5) calc(var(--unit) * 2.5) / calc(var(--unit) * 15) calc(var(--unit) * 1.5);
+  --jug--lid-two: linear-gradient(var(--lid), var(--lid)) calc(var(--unit) * 9) calc(var(--unit) * 1) / calc(var(--unit) * 8) calc(var(--unit) * 2.5);
+  --controls: repeating-linear-gradient(90deg, transparent 0 5%, var(--button) 5%, 20%, transparent 20% 25%) calc(var(--unit) * 9) calc(var(--unit) * 30) / calc(var(--unit) * 8) calc(var(--unit) * 1);
+  --controls--plate: repeating-linear-gradient(var(--plate), var(--plate)) calc(var(--unit) * 8.75) calc(var(--unit) * 29.5) / calc(var(--unit) * 8.5) calc(var(--unit) * 2);
+  --knob: radial-gradient(var(--control) 0 50%, transparent 50% 100%) calc(var(--unit) * 10) calc(var(--unit) * 24) / calc(var(--unit) * 6) calc(var(--unit) * 6);
+  --knob--plate: radial-gradient(var(--plate) 0 50%, transparent 50% 100%) calc(var(--unit) * 9) calc(var(--unit) * 23) / calc(var(--unit) * 8) calc(var(--unit) * 8);
+  --indicator: radial-gradient(var(--led) 0 50%, transparent 50% 100%) calc(var(--unit) * 12.75) calc(var(--unit) * 25.5) / calc(var(--unit) * 0.5) calc(var(--unit) * 0.5);
+  --levels: repeating-linear-gradient(var(--trim) 0 2%, transparent 2% 16%) calc(var(--unit) * 12.5) calc(var(--unit) * 6) / calc(var(--unit) * 1) calc(var(--unit) * 12);
+  --handle--top: linear-gradient(var(--lid), var(--lid)) calc(var(--unit) * 18) calc(var(--unit) * 4) / calc(var(--unit) * 6) calc(var(--unit) * 1.5);
+  --handle--bottom: linear-gradient(var(--lid), var(--lid)) calc(var(--unit) * 17.5) calc(var(--unit) * 15.5) / calc(var(--unit) * 6) calc(var(--unit) * 1.5);
+  --handle--right: linear-gradient(96deg, var(--lid) 0 50%, transparent 50% 100%) calc(var(--unit) * 23) calc(var(--unit) * 4) / calc(var(--unit) * 2.5) calc(var(--unit) * 12.5);
+  --handle--left: linear-gradient(-84deg, var(--lid) 0 50%, transparent 50% 100%) calc(var(--unit) * 21.5) calc(var(--unit) * 4) / calc(var(--unit) * 2.5) calc(var(--unit) * 13);
+  --body-shimmer--one: linear-gradient(var(--shimmer), var(--shimmer)) calc(var(--unit) * 6) calc(var(--unit) * 23) / calc(var(--unit) * 1) calc(var(--unit) * 10.5);
+  --body-shimmer--two: linear-gradient(var(--shimmer), var(--shimmer)) calc(var(--unit) * 7.5) calc(var(--unit) * 23) / calc(var(--unit) * 0.5) calc(var(--unit) * 10.5);
+  --jug-shimmer--one: linear-gradient(-98deg, transparent 0 25%, var(--shimmer) 25% 33%, transparent 30% 100%) calc(var(--unit) * -0.25) calc(var(--unit) * 4) / calc(var(--unit) * 11) calc(var(--unit) * 14);
+  --jug-shimmer--two: linear-gradient(-98deg, transparent 0 25%, var(--shimmer) 25% 30%, transparent 30% 100%) calc(var(--unit) * 1) calc(var(--unit) * 4) / calc(var(--unit) * 11) calc(var(--unit) * 14);
+  --jug-shimmer--three: linear-gradient(var(--shimmer), var(--shimmer)) calc(var(--unit) * 8.5) calc(var(--unit) * 18) / calc(var(--unit) * 1) calc(var(--unit) * 4);
+  --jug-shimmer--four: linear-gradient(var(--shimmer), var(--shimmer)) calc(var(--unit) * 10) calc(var(--unit) * 18) / calc(var(--unit) * 0.75) calc(var(--unit) * 4);
+  --power: linear-gradient(var(--led), var(--led)) calc(var(--unit) * 19) calc(var(--unit) * 25) / calc(var(--unit) * 1) calc(var(--unit) * 1);
+  --eye--left-one: linear-gradient(transparent 0 40%, var(--eye) 40% 60%, transparent 60% 100%) calc(var(--unit) * 8) calc(var(--unit) * 8) / calc(var(--unit) * 3) calc(var(--unit) * 3);
+  --eye--left-two: linear-gradient(24deg, transparent 0 58%, var(--eye) 58% 72%, transparent 72% 100%) calc(var(--unit) * 8) calc(var(--unit) * 8) / calc(var(--unit) * 3) calc(var(--unit) * 3);
+  --eye--left-three: linear-gradient(-22deg, transparent 0 30%, var(--eye) 30% 43%, transparent 43% 100%) calc(var(--unit) * 8) calc(var(--unit) * 8) / calc(var(--unit) * 3) calc(var(--unit) * 3);
+  --eye--right-one: linear-gradient(transparent 0 40%, var(--eye) 40% 60%, transparent 60% 100%) calc(var(--unit) * 15) calc(var(--unit) * 8) / calc(var(--unit) * 3) calc(var(--unit) * 3);
+  --eye--right-two: linear-gradient(20deg, transparent 0 28%, var(--eye) 28% 42%, transparent 42% 100%) calc(var(--unit) * 15) calc(var(--unit) * 8) / calc(var(--unit) * 3) calc(var(--unit) * 3);
+  --eye--right-three: linear-gradient(-20deg, transparent 0 60%, var(--eye) 60% 73%, transparent 73% 100%) calc(var(--unit) * 15) calc(var(--unit) * 8) / calc(var(--unit) * 3) calc(var(--unit) * 3);
+  --mouth: radial-gradient(var(--eye) 0 50%, transparent 50% 100%) calc(var(--unit) * 12) calc(var(--unit) * 9) / calc(var(--unit) * 2) calc(var(--unit) * 2);
   background:
-    var(--body--main),
+    var(--mouth),
+    var(--eye--left-one),
+    var(--eye--left-two),
+    var(--eye--left-three),
+    var(--eye--right-one),
+    var(--eye--right-two),
+    var(--eye--right-three),
+    var(--power),
+    var(--jug-shimmer--one),
+    var(--jug-shimmer--two),
+    var(--jug-shimmer--three),
+    var(--jug-shimmer--four),
+    var(--body-shimmer--one),
+    var(--body-shimmer--two),
+    var(--levels),
+    var(--indicator),
+    var(--knob),
+    var(--controls),
+    var(--jug--lid),
+    var(--jug--lid-two),
+    var(--jug--spout),
     var(--jug--main),
-    var(--body--top),
+    var(--jug--left),
+    var(--jug--right),
     var(--trim--top),
     var(--trim--bottom),
+    var(--controls--plate),
+    var(--knob--plate),
+    var(--body--main),
+    var(--body--top),
     var(--feet),
-    var(--bg);
+    var(--handle--top),
+    var(--handle--right),
+    var(--handle--left),
+    var(--handle--bottom);
   content: "";
   background-repeat: no-repeat;
   height: calc(34 * var(--unit));
@@ -30,21 +96,19 @@ body:before {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -50%) rotate(-2deg);
+  animation: shake 0.015s infinite alternate-reverse;
 }
 
-img {
-  position: fixed;
-  height: calc(45 * var(--unit));
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.5;
+body {
+  background: radial-gradient(var(--bg) 0 50%, transparent 50% 100%) 50% 50% / 65vmin 65vmin,
+              repeating-conic-gradient(var(--bg) 0 15deg, var(--bg-two) 15deg 30deg);
+  background-repeat: no-repeat;
 }
 
-/* Maybe shake by adjusting the background position of everything slightly? */
-/* @keyframes shake {
-  0% {
-    background-position: 1px;
+@keyframes shake {
+  to {
+    transform: translate(-50%, -50%) rotate(2deg);
   }
-} */
+}
