@@ -1,16 +1,26 @@
 :root {
-  --unit: 2vmin;
+  --unit: 1vmin;
   --bg: hsl(30, 50%, 80%);
-  --sea: hsl(200, 50%, 50%);
-  --sand: red;
-  --rock: hsl(35, 20%, 20%);
-  --mountain--one: hsl(210, 10%, 50%);
-  --mountain--two: hsl(210, 10%, 30%);
+  --sea: hsl(200, 50%, 40%);
+  --sand: hsl(40, 50%, 30%);
+  --sun: hsl(35, 90%, 45%);
+  --rock: hsl(200, 20%, 25%);
+  --mountain--one: hsl(210, 10%, 30%);
+  --mountain--two: hsl(210, 10%, 50%);
   --greenery--one: hsl(90, 60%, 40%);
   --greenery--two: hsl(90, 60%, 20%);
   --greenery--three: hsl(90, 60%, 30%);
-  --tent--one: red;
-  --tent--two: blue;
+  --greenery--four: hsl(90, 60%, 45%);
+  --tent--one: hsl(40, 20%, 80%);
+  --tent--two: hsl(40, 20%, 60%);
+  --tree: hsl(30, 20%, 20%);
+  --drop--one: hsl(0, 0%, 98%);
+  --drop--two: hsl(0, 0%, 93%);
+  --drop--three: hsl(0, 0%, 95%);
+  --drop--four: hsl(0, 0%, 98%);
+  --drop--five: hsl(0, 0%, 96%);
+  --drop--six: hsl(0, 0%, 94%);
+  --drop--seven: hsl(0, 0%, 92%);
 }
 
 body {
@@ -19,25 +29,91 @@ body {
   font-size: var(--unit);
 }
 
+body:after {
+  content: '';
+  position: absolute;
+  height: 10em;
+  width: 16em;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(var(--drop--one) 50%, transparent 50%) 0em 2em / 6em 6em,
+    radial-gradient(var(--drop--one) 50%, transparent 50%) 2em 0em / 8em 8em,
+    radial-gradient(var(--drop--one) 50%, transparent 50%) 4em 2em / 8em 8em,
+    radial-gradient(var(--drop--one) 50%, transparent 50%) 6em 0em / 8em 8em,
+    radial-gradient(var(--drop--one) 50%, transparent 50%) 10em 1em / 6em 6em,
+    radial-gradient(var(--drop--one) 50%, transparent 50%) 9em 3em / 6em 6em;
+  background-repeat: no-repeat;
+  animation: travel 10s infinite linear, fade 10s infinite linear;
+}
+
+@keyframes travel {
+  from {
+    transform: translate(-200%, -50%);
+  }
+  to {
+    transform: translate(100%, -50%);
+  }
+}
+@keyframes fade {
+  0%, 10%, 90%, 100% {
+    opacity: 0;
+  }
+  40%, 60% {
+    opacity: 1;
+  }
+}
+
 body:before {
+  --waterfall--drop-one: radial-gradient(var(--drop--one) 50%, transparent 50%) 29.5em 38em / 4em 4em;
+  --waterfall--drop-two: radial-gradient(var(--drop--two) 50%, transparent 50%) 31.5em 37em / 4em 4em;
+  --waterfall--drop-three: radial-gradient(var(--drop--three) 50%, transparent 50%) 33.5em 38em / 4em 4em;
+  --waterfall--drop-four: radial-gradient(var(--drop--four) 50%, transparent 50%) 34.5em 37em / 4em 4em;
+  --waterfall--drop-five: radial-gradient(var(--drop--five) 50%, transparent 50%) 35.5em 38em / 4em 4em;
+  --waterfall--drop-six: radial-gradient(var(--drop--six) 50%, transparent 50%) 37.5em 37em / 4em 4em;
+  --waterfall--drop-seven: radial-gradient(var(--drop--seven) 50%, transparent 50%) 35.5em 38em / 4em 4em;
+  --waterfall--drop-eight: radial-gradient(var(--drop--seven) 50%, transparent 50%) 31em 38em / 4em 4em;
+  --waterfall--drop-nine: radial-gradient(var(--drop--seven) 50%, transparent 50%) 38em 38em / 4em 4em;
+  --tree--leaves-one: radial-gradient(var(--greenery--one) 50%, transparent 50%) 28em 20em / 3em 3em;
+  --tree--leaves-three: radial-gradient(var(--greenery--three) 50%, transparent 50%) 29em 19em / 4em 4em;
+  --tree--leaves-two: radial-gradient(var(--greenery--two) 50%, transparent 50%) 28em 18em / 5em 5em;
+  --tree--trunk: linear-gradient(var(--tree), var(--tree)) 30em 21.5em / 1em 3em;
   --waterfall--main: linear-gradient(var(--sea), var(--sea)) 32em 24em / 8em 16em;
-  --water: radial-gradient(ellipse at 50% 0, var(--sea) 0 50%, transparent 50% 100%) -8em 40em / 66em 13em;
-  --land: radial-gradient(ellipse at center, var(--sand) 55%, transparent 50%) 1em 37em / 48em 6em;
-  --sunset: radial-gradient(circle at 50% 68%, orange 64%, transparent 64%) 0em 0em / 50em 40em;
-  --cliff: linear-gradient(var(--rock), var(--rock)) 12em 25em / 30em 14.5em;
+  --waterfall--stream: repeating-linear-gradient(90deg, var(--sea) 0 15%, hsla(0, 0%, 100%, 0.75) 15% 20%) 32em 24em / 8em 16em;
+  --tent-front--left: linear-gradient(65deg, var(--tent--one) 50%, transparent 50%) 26.5em 23em / 0.5em 1em;
+  --tent-front--right: linear-gradient(-65deg, var(--tent--one) 50%, transparent 50%) 26em 23em / 0.5em 1em;
+  --tent--body: linear-gradient(65deg, var(--tent--two) 80%, transparent 80%) 26.5em 23em / 2em 1em;
+  --cliff-top--left: linear-gradient(var(--greenery--two), var(--greenery--two)) 11.5em 23.5em / 21em 2em;
+  --cliff-top--right: linear-gradient(var(--greenery--two), var(--greenery--two)) 39.5em 23.5em / 3em 2em;
   --mountain--one-left: linear-gradient(118deg, transparent 50%, var(--mountain--one) 50%) 12em 15em / 8em 9em;
   --mountain--one-right: linear-gradient(69deg, var(--mountain--one) 50%, transparent 50%) 19em 15em / 8em 9em;
   --mountain--two-left: linear-gradient(118deg, transparent 50%, var(--mountain--two) 50%) 15em 6em / 18em 18em;
   --mountain--two-right: linear-gradient(69deg, var(--mountain--two) 50%, transparent 50%) 29em 6em / 18em 18em;
-  --cliff-top--left: linear-gradient(var(--greenery--two), var(--greenery--two)) 11.5em 23.5em / 21em 2em;
-  --cliff-top--right: linear-gradient(var(--greenery--two), var(--greenery--two)) 39.5em 23.5em / 3em 2em;
   --hill--one: radial-gradient(circle at 50% 90%, var(--greenery--one) 50%, transparent 50%) 10em 32.5em / 8em 8em;
   --hill--two: radial-gradient(circle at 50% 90%, var(--greenery--two) 50%, transparent 50%) 21em 31em / 10em 10em;
   --hill--three: radial-gradient(circle at 50% 90%, var(--greenery--three) 50%, transparent 50%) 14em 26em / 14em 14em;
-  --tent-front--left: linear-gradient(65deg, var(--tent--one) 50%, transparent 50%) 26.5em 23em / 0.5em 1em;
-  --tent-front--right: linear-gradient(-65deg, var(--tent--one) 50%, transparent 50%) 26em 23em / 0.5em 1em;
-  --tent--body: linear-gradient(65deg, var(--tent--two) 80%, transparent 80%) 26.5em 23em / 2em 1em;
+  --cliff: linear-gradient(var(--rock), var(--rock)) 12em 25em / 30em 14.5em;
+  --land: radial-gradient(ellipse at center, var(--greenery--four) 55%, transparent 50%) 1em 37em / 48em 6em;
+  --land--two: radial-gradient(ellipse at center, var(--sand) 55%, transparent 50%) 1em 37em / 48em 7em;
+  --water: radial-gradient(ellipse at 50% 0, var(--sea) 0 50%, transparent 50% 100%) -8em 40em / 66em 13em;
+  --sunset: radial-gradient(circle at 50% 68%, var(--sun) 64%, transparent 64%) 0em 0em / 50em 40em;
+
   background:
+    var(--waterfall--drop-one),
+    var(--waterfall--drop-two),
+    var(--waterfall--drop-three),
+    var(--waterfall--drop-four),
+    var(--waterfall--drop-five),
+    var(--waterfall--drop-six),
+    var(--waterfall--drop-seven),
+    var(--waterfall--drop-eight),
+    var(--waterfall--drop-nine),
+    var(--tree--leaves-one),
+    var(--tree--leaves-three),
+    var(--tree--leaves-two),
+    var(--tree--trunk),
+    var(--waterfall--stream),
     var(--waterfall--main),
     var(--tent-front--left),
     var(--tent-front--right),
@@ -53,16 +129,55 @@ body:before {
     var(--hill--three),
     var(--cliff),
     var(--land),
+    var(--land--two),
     var(--water),
-    var(--sunset),
-    hsla(0, 0%, 10%, 0.1);
+    var(--sunset);
   content: "";
   font-family: sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 50em;
+  height: 53em;
   width: 50em;
   transform: translate(-50%, -50%);
   background-repeat: no-repeat;
+  animation: froth 0.25s infinite linear alternate-reverse;
+}
+
+@keyframes froth {
+  to {
+    background-size:
+      4.25em 4.75em,
+      4.15em 5em,
+      4.75em 4.85em,
+      4.55em 4.5em,
+      4.55em 4.5em,
+      4.55em 4.5em,
+      4.55em 4.5em,
+      4.55em 4.5em,
+      4.55em 4.5em,
+      3em 3em,
+      4em 4em,
+      5em 5em,
+      1em 3em,
+      8em 16em,
+      8em 16em,
+      0.5em 1em,
+      0.5em 1em,
+      2em 1em,
+      21em 2em,
+      3em 2em,
+      8em 9em,
+      8em 9em,
+      18em 18em,
+      18em 18em,
+      8em 8em,
+      10em 10em,
+      14em 14em,
+      30em 14.5em,
+      48em 6em,
+      48em 7em,
+      66em 13em,
+      50em 40em;
+  }
 }
