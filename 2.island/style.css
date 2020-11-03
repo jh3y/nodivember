@@ -1,0 +1,68 @@
+:root {
+  --unit: 2vmin;
+  --bg: hsl(30, 50%, 80%);
+  --sea: hsl(200, 50%, 50%);
+  --sand: red;
+  --rock: hsl(35, 20%, 20%);
+  --mountain--one: hsl(210, 10%, 50%);
+  --mountain--two: hsl(210, 10%, 30%);
+  --greenery--one: hsl(90, 60%, 40%);
+  --greenery--two: hsl(90, 60%, 20%);
+  --greenery--three: hsl(90, 60%, 30%);
+  --tent--one: red;
+  --tent--two: blue;
+}
+
+body {
+  background: var(--bg);
+  background-repeat: no-repeat;
+  font-size: var(--unit);
+}
+
+body:before {
+  --waterfall--main: linear-gradient(var(--sea), var(--sea)) 32em 24em / 8em 16em;
+  --water: radial-gradient(ellipse at 50% 0, var(--sea) 0 50%, transparent 50% 100%) -8em 40em / 66em 13em;
+  --land: radial-gradient(ellipse at center, var(--sand) 55%, transparent 50%) 1em 37em / 48em 6em;
+  --sunset: radial-gradient(circle at 50% 68%, orange 64%, transparent 64%) 0em 0em / 50em 40em;
+  --cliff: linear-gradient(var(--rock), var(--rock)) 12em 25em / 30em 14.5em;
+  --mountain--one-left: linear-gradient(118deg, transparent 50%, var(--mountain--one) 50%) 12em 15em / 8em 9em;
+  --mountain--one-right: linear-gradient(69deg, var(--mountain--one) 50%, transparent 50%) 19em 15em / 8em 9em;
+  --mountain--two-left: linear-gradient(118deg, transparent 50%, var(--mountain--two) 50%) 15em 6em / 18em 18em;
+  --mountain--two-right: linear-gradient(69deg, var(--mountain--two) 50%, transparent 50%) 29em 6em / 18em 18em;
+  --cliff-top--left: linear-gradient(var(--greenery--two), var(--greenery--two)) 11.5em 23.5em / 21em 2em;
+  --cliff-top--right: linear-gradient(var(--greenery--two), var(--greenery--two)) 39.5em 23.5em / 3em 2em;
+  --hill--one: radial-gradient(circle at 50% 90%, var(--greenery--one) 50%, transparent 50%) 10em 32.5em / 8em 8em;
+  --hill--two: radial-gradient(circle at 50% 90%, var(--greenery--two) 50%, transparent 50%) 21em 31em / 10em 10em;
+  --hill--three: radial-gradient(circle at 50% 90%, var(--greenery--three) 50%, transparent 50%) 14em 26em / 14em 14em;
+  --tent-front--left: linear-gradient(65deg, var(--tent--one) 50%, transparent 50%) 26.5em 23em / 0.5em 1em;
+  --tent-front--right: linear-gradient(-65deg, var(--tent--one) 50%, transparent 50%) 26em 23em / 0.5em 1em;
+  --tent--body: linear-gradient(65deg, var(--tent--two) 80%, transparent 80%) 26.5em 23em / 2em 1em;
+  background:
+    var(--waterfall--main),
+    var(--tent-front--left),
+    var(--tent-front--right),
+    var(--tent--body),
+    var(--cliff-top--left),
+    var(--cliff-top--right),
+    var(--mountain--one-left),
+    var(--mountain--one-right),
+    var(--mountain--two-left),
+    var(--mountain--two-right),
+    var(--hill--one),
+    var(--hill--two),
+    var(--hill--three),
+    var(--cliff),
+    var(--land),
+    var(--water),
+    var(--sunset),
+    hsla(0, 0%, 10%, 0.1);
+  content: "";
+  font-family: sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50em;
+  width: 50em;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+}
