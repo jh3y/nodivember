@@ -1,12 +1,12 @@
 :root {
   --unit: 1vmin;
   --sky: hsl(200, 40%, 90%);
-  --cloud: red;
+  --night: hsl(210, 40%, 15%);
   --fence--one: hsl(35, 40%, 40%);
   --fence--two: hsl(35, 40%, 20%);
-  --fence--three: hsl(35, 40%, 50%);
+  --fence--three: hsl(35, 40%, 60%);
   --paper: hsl(0, 0%, 98%);
-  --band: hsl(190, 30%, 50%);
+  --band: hsla(190, 30%, 50%, 0.75);
   --eye: hsl(0, 0%, 10%);
   --pupil: hsl(0, 0%, 100%);
   --ink: hsl(0, 0%, 80%);
@@ -28,7 +28,29 @@ body {
     var(--fence-brace--one),
     var(--fence-brace--two);
   background-color: var(--sky);
-  animation: slide 2s infinite linear;
+  animation: slide 4s infinite linear, time 60s infinite linear;
+}
+
+body:before {
+  --star--one: radial-gradient(var(--sky) 50%, transparent 50%) 10vw 10vh / 1em 1em;
+  --star--two: radial-gradient(var(--sky) 50%, transparent 50%) 80vw 20vh / 1em 1em;
+  --star--three: radial-gradient(var(--sky) 50%, transparent 50%) 40vw 50vh / 1em 1em;
+  --star--four: radial-gradient(var(--sky) 50%, transparent 50%) 60vw 36vh / 1em 1em;
+  --star--five: radial-gradient(var(--sky) 50%, transparent 50%) 24vw 42vh / 1em 1em;
+  content: '';
+  background:
+    var(--star--one),
+    var(--star--two),
+    var(--star--three),
+    var(--star--four),
+    var(--star--five)
+  ;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  animation: glimmer 60s infinite linear, twinkle 60s infinite linear;
+  opacity: 0;
 }
 
 body:after {
@@ -77,11 +99,45 @@ body:after {
   }
 }
 
+@keyframes time {
+  50% {
+    background-color: var(--night);
+  }
+}
+
 @keyframes slide {
   from {
     background-position: 0 70vh, 0 75vh, 0 95vh;
   }
   to {
     background-position: -100vw 70vh, 0 75vh, 0 95vh;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    background-position:
+    130vw 10vh,
+    200vw 20vh,
+    160vw 50vh,
+    180vw 36vh,
+    144vw 42vh;
+  }
+  to {
+    background-position:
+    -90vw 10vh,
+    -20vw 20vh,
+    -60vw 50vh,
+    -40vw 36vh,
+    -76vw 42vh;
+  }
+}
+
+@keyframes glimmer {
+  0%, 40%, 60%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
 }
