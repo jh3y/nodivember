@@ -1,0 +1,137 @@
+:root {
+  --unit: 1vmin;
+  --bulb--one: hsla(210, 20%, 90%, 1);
+  --bulb--two: hsla(210, 20%, 75%, 1);
+  --bulb--three: hsla(210, 0%, 100%, 1);
+  --bulb--four: hsla(210, 10%, 50%, 0.5);
+  --cap--one: hsl(36, 22%, 9%);
+  --cap--two: hsl(33, 74%, 28%);
+  --cap--three: hsl(36, 69%, 37%);
+  --cap--four: hsl(48, 100%, 94%);
+  --cap--five: hsl(48, 100%, 90%);
+  --connector: hsl(0, 0%, 90%);
+  --pupil: hsl(0, 0%, 100%);
+  --feature: hsl(0, 0%, 10%);
+  --glow: transparent;
+}
+
+html {
+  font-size: var(--unit);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background-color: hsl(205, 30%, 24%);
+}
+
+/* body:after {
+  display: none;
+} */
+
+body:before {
+  --filament--left: linear-gradient(75deg, transparent 0 48%, var(--bulb--four), transparent 52% 100%) 13.25em 22em / 8em 8em;
+  --filament--right: linear-gradient(-75deg, transparent 0 48%, var(--bulb--four), transparent 52% 100%) 18.75em 22em / 8em 8em;
+  --filament--wire: linear-gradient(var(--bulb--four), var(--bulb--four)) 50% 23em / 7em 0.25em;
+  --filament--body: linear-gradient(90deg, var(--bulb--two) 5%, var(--bulb--four) 10% 12%, var(--bulb--three) 15% 18% , var(--bulb--one) 20% 30%, var(--bulb--four) 30% 34%, var(--bulb--one) 34% 66%, var(--bulb--four) 66% 70%, var(--bulb--one) 70% 80%, var(--bulb--three) 82% 85%, var(--bulb--four) 88% 90%, var(--bulb--two) 95%) 50% 30em / 4em 6em;
+  --bulb--glow: radial-gradient(var(--glow) 0 40%, transparent 60% 89%) 50% -3em / 42em 42em;
+  --bulb--main: radial-gradient(var(--bulb--one) 0 45%, var(--bulb--two) 49%, transparent 50% 100%) 50% -3em / 42em 42em;
+  --bulb-bottom--right: linear-gradient(128deg, var(--bulb--one) 0 36%, var(--bulb--two) 48%, transparent 50% 100%) 23.65em 28em / 8em 8em;
+  --bulb-bottom--left: linear-gradient(-128deg, var(--bulb--one) 0 36%, var(--bulb--two) 48%, transparent 50% 100%) 8.35em 28em / 8em 8em;
+  --bulb-bottom--center: linear-gradient(var(--bulb--one) 0 65%, var(--bulb--two) 98% 100%) 50% 28em / 9.5em 8em;
+  --bulb-shine--central: radial-gradient(var(--bulb--three)0 50%, transparent 55% 100%) 50% 5em / 26em 26em;
+  --bulb-shine--central-cover: radial-gradient(var(--bulb--one)0 44%, transparent 55% 100%) 50% 6em / 24em 24em;
+  --bulb-shine--clip-top-right: linear-gradient(120deg, var(--bulb--one) 0 39%, transparent 60% 100%) 18em 8em / 8em 8em;
+  --bulb-shine--clip-top-left: linear-gradient(-120deg, var(--bulb--one) 0 39%, transparent 60% 100%) 11em 8em / 8em 8em;
+  --bulb-shine--clip-bottom-right: linear-gradient(60deg, var(--bulb--one) 0 39%, transparent 60% 100%) 19em 20em / 8em 8em;
+  --bulb-shine--clip-bottom-left: linear-gradient(-60deg, var(--bulb--one) 0 39%, transparent 60% 100%) 14em 20em / 8em 8em;
+  --bulb-shine--right: radial-gradient(circle at 0 50%, var(--bulb--three) 0% 40%, transparent 47% 100%) 19em -1em / 20em 38em;
+  --bulb-shine--right-cover: radial-gradient(circle at 0 50%, var(--bulb--one) 0% 42%, transparent 48% 100%) 18.5em -2em / 20em 40em;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 50%, transparent 55% 100%) 50% 19em / 6em 2em;
+  --mouth--cap: radial-gradient(circle at 50% 0, var(--bulb--one) 0 42%, transparent 43% 100%) 50% 18.75em / 6em 2em;
+  --cap--top: linear-gradient(90deg, var(--cap--three) 5%, var(--cap--four) 13% 22%, var(--cap--three), var(--cap--one) 32% 54%, var(--cap--three) 60%, var(--cap--four) 74% 84%, var(--cap--three), var(--cap--one)) 50% 63.5% / 11.5em 1em;
+  --cap--highlight: linear-gradient(90deg, var(--cap--three) 5%, var(--cap--five) 13% 84%, var(--cap--three), var(--cap--one)) 50% 64.5% / 11em 0.45em;
+  --cap--highlight-two: linear-gradient(90deg, var(--cap--three) 5%, var(--cap--five) 13% 84%, var(--cap--three), var(--cap--one)) 50% 72% / 9em 0.45em;
+  --cap--top-body: linear-gradient(90deg, var(--cap--three) 5%, var(--cap--four) 13% 22%, var(--cap--three), var(--cap--one) 32% 54%, var(--cap--three) 60%, var(--cap--four) 74% 84%, var(--cap--three), var(--cap--one)) 50% 35em / 10.5em 5em;
+  --cap--main: linear-gradient(90deg, var(--cap--three) 5%, var(--cap--four) 13% 22%, var(--cap--three), var(--cap--one) 32% 54%, var(--cap--three) 60%, var(--cap--four) 74% 84%, var(--cap--three), var(--cap--one)) 50% 35em / 9em 13em;
+  --cap--bayonet: linear-gradient(180deg, var(--cap--one) 5%, var(--cap--four) 10% 20%, var(--cap--two) 70% 100%) 50% 46em / 11em 0.75em;
+  --cap--bottom: linear-gradient(var(--feature), var(--feature)) 50% 47em / 7.5em 1.5em;
+  --cap--connector: linear-gradient(var(--connector), var(--connector)) 50% 47em / 5em 1.75em;
+  content: '';
+  height: 56em;
+  width: 40em;
+  background-color: hsla(180, 20%, 20%, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* opacity: 0.5; */
+  background:
+    var(--mouth--cap),
+    var(--mouth),
+    var(--cap--top),
+    var(--cap--highlight),
+    var(--cap--top-body),
+    var(--cap--highlight-two),
+    var(--cap--main),
+    var(--cap--bayonet),
+    var(--cap--bottom),
+    var(--cap--connector),
+    var(--filament--left),
+    var(--filament--wire),
+    var(--filament--right),
+    var(--filament--body),
+    var(--bulb-shine--clip-top-right),
+    var(--bulb-shine--clip-top-left),
+    var(--bulb-shine--clip-bottom-right),
+    var(--bulb-shine--clip-bottom-left),
+    var(--bulb-shine--central-cover),
+    var(--bulb-shine--central),
+    var(--bulb-shine--right-cover),
+    var(--bulb-shine--right),
+    var(--bulb-bottom--center),
+    var(--bulb-bottom--left),
+    var(--bulb-bottom--right),
+    var(--bulb--main),
+    var(--bulb--glow);
+  background-repeat: no-repeat;
+}
+
+body:after {
+  --eye--left: radial-gradient(var(--feature) 0 65%, transparent 70% 100%) 0em 0em / 4em 4em;
+  --eye--right: radial-gradient(var(--feature) 0 65%, transparent 70% 100%) 100% 0em / 4em 4em;
+  --pupil--left: radial-gradient(var(--pupil) 0 50%, transparent 65% 100%) 0.6em 0.6em / 1em 1em;
+  --pupil--right: radial-gradient(var(--pupil) 0 50%, transparent 65% 100%) 16.4em 0.6em / 1em 1em;
+  content: '';
+  height: 4em;
+  width: 20em;
+  background:
+    var(--pupil--left),
+    var(--pupil--right),
+    var(--eye--left),
+    var(--eye--right);
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  animation: blink 5s infinite linear;
+}
+
+@keyframes blink {
+  0%, 49%, 51%, 54%, 100% {
+    transform: translate(-50%, -300%) scaleY(1);
+  }
+  50%, 52% {
+    transform: translate(-50%, -300%) scaleY(0);
+  }
+}
+
+/* Activate light bulb */
+body:active:before {
+  --glow: hsl(45, 100%, 93%);
+  --bulb--one: hsl(45, 100%, 96%);
+  --bulb--two: hsl(45, 100%, 95%);
+  --bulb--three: hsl(45, 100%, 100%);
+  --bulb--four: hsl(45, 100%, 99%);
+}
