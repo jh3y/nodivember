@@ -1,0 +1,139 @@
+:root {
+  --unit: 1vmin;
+  --height: 36em;
+  --width: calc(var(--height) * 0.6);
+  --rainbow--one: hsl(10, 80%, 70%);
+  --rainbow--two: hsl(40, 80%, 70%);
+  --rainbow--three: hsl(60, 80%, 70%);
+  --rainbow--four: hsl(100, 80%, 70%);
+  --rainbow--five: hsl(140, 80%, 70%);
+  --rainbow--six: hsl(200, 80%, 70%);
+  --rainbow--seven: hsl(280, 80%, 70%);
+  --feature: hsl(0, 0%, 10%);
+  --cheek: hsl(0, 80%, 80%);
+  --greenery--one: hsl(90, 40%, 50%);
+  --greenery--two: hsl(100, 40%, 30%);
+  --greenery--three: hsl(100, 40%, 25%);
+}
+
+html {
+  font-size: var(--unit);
+}
+
+body {
+  --stalk--body: linear-gradient(270deg, var(--greenery--two) 0 20%, var(--greenery--one) 25% 100%) 30em 0 / 20em 100% no-repeat;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  cursor: pointer;
+  background:
+    var(--stalk--body);
+  background-color: hsl(205, 80%, 94%);
+  overflow: hidden;
+}
+
+body:before {
+  --leaf--main: radial-gradient(circle at 50% 0, var(--greenery--three) 0 60%, transparent 61% 100%) 0 0 / 50em 25em;
+  --leaf--line--one: linear-gradient(-65deg, transparent 0 48%, var(--greenery--one), transparent 52% 100%) 30em 0 / 10em 20em;
+  --leaf--line--two: linear-gradient(-65deg, transparent 0 48%, var(--greenery--one), transparent 52% 100%) 20em 0 / 10em 20em;
+  --leaf--line--three: linear-gradient(-65deg, transparent 0 48%, var(--greenery--one), transparent 52% 100%) 10em 0 / 10em 20em;
+  --stem: linear-gradient(90deg, var(--greenery--two) 40%, var(--greenery--one)) 40em 10% / 15em 5em;
+  content: '';
+  position: absolute;
+  left: -20em;
+  width: 55em;
+  height: 20em;
+  border-radius: 0 0 50% 50%;
+  background:
+    var(--leaf--line--one),
+    var(--leaf--line--two),
+    var(--leaf--line--three),
+    var(--leaf--main),
+    var(--stem);
+  background-repeat: no-repeat;
+  top: 50%;
+  transform-origin: 100% 50%;
+  transform: rotate(30deg);
+  animation: scale 1s infinite linear;
+}
+
+@keyframes scale {
+  from {
+    transform: translate(0, 100vmax) rotate(30deg);
+  }
+  to {
+    transform: translate(0, -100vmax) rotate(30deg);
+  }
+}
+
+body:after {
+  --pupil--left: radial-gradient(white 0 65%, transparent 70% 100%) 22% calc(var(--height) * 0.36) / calc(var(--height) * 0.035) calc(var(--height) * 0.035) no-repeat;
+  --eye--left: radial-gradient(var(--feature) 0 65%, transparent 70% 100%) 22% calc(var(--height) * 0.35) / calc(var(--height) * 0.1) calc(var(--height) * 0.1) no-repeat;
+  --pupil--right: radial-gradient(white 0 65%, transparent 70% 100%) 71% calc(var(--height) * 0.36) / calc(var(--height) * 0.035) calc(var(--height) * 0.035) no-repeat;
+  --eye--right: radial-gradient(var(--feature) 0 65%, transparent 70% 100%) 78% calc(var(--height) * 0.35) / calc(var(--height) * 0.1) calc(var(--height) * 0.1) no-repeat;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 30%, transparent 33% 100%) 50% calc(var(--height) * 0.44) / calc(var(--height) * 0.125) calc(var(--height) * 0.125) no-repeat;
+  --cheek--right: radial-gradient(var(--cheek) 0 50%, transparent 60% 100%) 15% calc(var(--height) * 0.44) / calc(var(--height) * 0.05) calc(var(--height) * 0.05) no-repeat;
+  --cheek--left: radial-gradient(var(--cheek) 0 50%, transparent 60% 100%) 85% calc(var(--height) * 0.44) / calc(var(--height) * 0.05) calc(var(--height) * 0.05) no-repeat;
+  --body: linear-gradient(
+    0deg,
+    var(--rainbow--one),
+    var(--rainbow--two),
+    var(--rainbow--three),
+    var(--rainbow--four),
+    var(--rainbow--five),
+    var(--rainbow--six),
+    var(--rainbow--seven),
+    var(--rainbow--one)
+  )
+  0 calc(var(--height) * -1) / 100% 100% repeat;
+  content: '';
+  position: absolute;
+  height: var(--height);
+  width: var(--width);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50% / 30%;
+  background:
+    var(--pupil--left),
+    var(--eye--left),
+    var(--pupil--right),
+    var(--eye--right),
+    var(--mouth),
+    var(--cheek--right),
+    var(--cheek--left),
+    var(--body);
+  box-shadow: -1.5em 0 0em 0.675em hsla(0, 0%, 10%, 0.1) inset;
+  animation: slide 2s infinite linear, spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes slide {
+  from {
+    background-position:
+      22% calc(var(--height) * 0.36),
+      22% calc(var(--height) * 0.35),
+      71% calc(var(--height) * 0.36),
+      78% calc(var(--height) * 0.35),
+      50% calc(var(--height) * 0.44),
+      15% calc(var(--height) * 0.44),
+      85% calc(var(--height) * 0.44),
+      0 calc(var(--height) * -1);
+  }
+  to {
+    background-position:
+      22% calc(var(--height) * 0.36),
+      22% calc(var(--height) * 0.35),
+      71% calc(var(--height) * 0.36),
+      78% calc(var(--height) * 0.35),
+      50% calc(var(--height) * 0.44),
+      15% calc(var(--height) * 0.44),
+      85% calc(var(--height) * 0.44),
+      0 calc(var(--height) * 1);
+  }
+}

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@700&display=swap");
+:root {
+  --unit: 2vmin;
+  --bg: hsl(205, 30%, 14%);
+  --shade--one: hsl(44, 86%, 92%);
+  --shade--two: hsl(44, 86%, 88%);
+  --shade--three: hsl(44, 86%, 83%);
+  --shade--four: hsl(44, 60%, 78%);
+  --shade--five: hsl(44, 44%, 72%);
+  --shade--six: hsl(44, 34%, 66%);
+  --shade--seven: hsl(44, 26%, 61%);
+  --shade--eight: hsl(44, 21%, 55%);
+  --shade--nine: hsl(45, 17%, 49%);
+  --shade--ten: hsl(45, 17%, 28%);
+}
+
+html {
+  font-size: var(--unit);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background-color: var(--bg);
+  min-height: 100vh;
+}
+
+/* Use body:before for sparkle animation */
+
+body:before {
+  content: '*';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  color: hsla(0, 0%, 100%, 0.95);
+  font-size: 10em;
+  font-weight: bold;
+  font-family: 'Catamaran', sans-serif;
+  z-index: 5;
+  transform-origin: 50% 30%;
+  animation: sparkle 3s infinite linear;
+}
+
+@keyframes sparkle {
+  0%, 20%, 100% {
+    transform: translate(-80%, -30%) scale(0) rotate(0deg);
+  }
+  10% {
+    transform: translate(-80%, -30%) scale(1) rotate(1080deg);
+  }
+  25% {
+    transform: translate(-190%, -10%) scale(0) rotate(2160deg);
+  }
+  35% {
+    transform: translate(-190%, -10%) scale(1) rotate(720deg);
+  }
+  45% {
+    transform: translate(-190%, -10%) scale(0) rotate(1440deg);
+  }
+  50% {
+    transform: translate(140%, -45%) scale(0) rotate(0deg);
+  }
+  60% {
+    transform: translate(140%, -45%) scale(1) rotate(1080deg);
+  }
+  70% {
+    transform: translate(140%, -45%) scale(0) rotate(2160deg);
+  }
+  80% {
+    transform: translate(140%, -45%) scale(0) rotate(2160deg);
+  }
+}
+
+body:after {
+  --lip: linear-gradient(var(--shade--five), var(--shade--five)) 0.2em 0 / calc(100% - 0.4em) 1.45em;
+  --lip-shine: linear-gradient(90deg, var(--shade--ten) 2%, var(--shade--eight) 8%, var(--shade--four) 14%, var(--shade--seven) 24%, var(--shade--one) 33% 40%, var(--shade--five) 45% 62%, var(--shade--one) 70%, var(--shade--six) 78%, var(--shade--eight), var(--shade--ten) 98%) 0.2em 0 / calc(100% - 0.4em) 1.45em;
+  --body: linear-gradient(var(--shade--seven), var(--shade--seven)) 0 0.2em / 100% 1.05em;
+  --body-shine: linear-gradient(90deg, var(--shade--ten) 2%, var(--shade--eight) 8%, var(--shade--four) 14%, var(--shade--seven) 24%, var(--shade--one) 33% 40%, var(--shade--five) 45% 62%, var(--shade--one) 70%, var(--shade--six) 78%, var(--shade--eight), var(--shade--ten) 98%) 0 0.2em / 100% 1.05em;
+  content: 'CSS';
+  font-family: 'Catamaran', sans-serif;
+  font-size: 6em;
+  line-height: 1.2em;
+  background:
+    var(--body-shine),
+    var(--body),
+    var(--lip-shine),
+    var(--lip);
+  background-repeat: no-repeat;
+  color: var(--shade--ten);
+  text-shadow:
+    0.03em 0.03em var(--shade--one),
+    0.02em 0.02em var(--shade--five),
+    0.01em 0.01em var(--shade--ten),
+    -0.01em -0.01em var(--shade--ten),
+    -0.02em -0.02em var(--shade--five),
+    -0.03em -0.03em var(--shade--one);
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.2em 1em;
+}

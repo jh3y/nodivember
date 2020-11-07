@@ -1,0 +1,154 @@
+:root {
+  --unit: 1vmin;
+  --bg: hsl(60, 80%, 90%);
+  --glimmer: hsla(0, 0%, 100%, 0.5);
+  --glimmer--two: hsla(0, 0%, 10%, 0.05);
+  --glimmer--three: hsla(0, 0%, 10%, 0.025);
+  --primary: hsla(50, 30%, 90%, 1);
+  --shading--one: hsla(0, 0%, 10%, 0.5);
+  --shading--two: hsl(50, 30%, 20%);
+  --label--one: hsl(180, 60%, 50%);
+  --label--two: hsl(80, 30%, 50%);
+  --label--three: hsl(180,0%, 99%);
+  --feature: hsl(0, 0%, 10%);
+  --spin-offset: 40em;
+  --squished: 1.1;
+  --extended: 0.9;
+  --height: 50em;
+  --width: 25em;
+  --speed: 1.2s;
+}
+
+html {
+  font-size: var(--unit);
+}
+
+body {
+  --shadow: radial-gradient(black 0 60%, transparent 65% 100%) 50%
+    calc(50% + 22.25em) / 27em 6em;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  background-repeat: no-repeat;
+  transform: scale(0.5);
+}
+
+/* Shadow */
+body:before {
+  content: '';
+  position: absolute;
+  background: radial-gradient(black, transparent);
+  height: 6em;
+  width: 25em;
+  top: calc(50% + 22em);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: shade var(--speed) infinite ease-in-out;
+  filter: blur(1px);
+}
+
+@keyframes shade {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+body:after {
+  /* --eyes: */
+  --pupil--left: radial-gradient(white 0 65%, transparent 70% 100%) 20% 21em / 1em 1em;
+  --eye--left: radial-gradient(var(--feature) 0 65%, transparent 70% 100%) 20% 20em / 4em 4em;
+  --pupil--right: radial-gradient(white 0 65%, transparent 70% 100%) calc(73%) 21em / 1em 1em;
+  --eye--right: radial-gradient(var(--feature) 0 65%, transparent 70% 100%) 80% 20em / 4em 4em;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 40%, transparent 50% 100%) 50% 22.5em / 4em 3em;
+  --top--gradient: radial-gradient(ellipse, transparent 60%, hsla(50, 30%, 20%, 0.5), transparent 68% 100%) 50% -1em / 27em 6em;
+  --top: radial-gradient(ellipse, var(--primary) 0 65%, transparent 68% 100%) 50% -1em / 27em 6em;
+  --body: linear-gradient(90deg, var(--glimmer) 0 2%, var(--glimmer--two) 6% 15%, var(--glimmer) 20% 35%, var(--glimmer--three) 40% 60%, var(--glimmer) 65% 80%, var(--glimmer--two) 88% 92%, var(--glimmer) 98% 100%) 0 0 / 25em 50em;
+  --text--one: radial-gradient(var(--label--two) 65%, transparent 70%) 90% 8em / 8em 8em;
+  --label--top: radial-gradient(ellipse, var(--primary) 0 65%, transparent 68% 100%) 50% 27em / 27em 6em;
+  --label--band: radial-gradient(ellipse, var(--label--one) 0 65%, transparent 68% 100%) 50% 28em / 29em 8em;
+  --label--body: linear-gradient(var(--label--three), var(--label--three)) 0% 30em / 25em 12em;
+  --label--bottom: radial-gradient(ellipse, var(--label--three) 0 65%, transparent 68% 100%) 50% 39em / 27em 6em;
+
+  content: '';
+  height: 50em;
+  width: 25em;
+  background:
+    var(--pupil--left),
+    var(--eye--left),
+    var(--pupil--right),
+    var(--eye--right),
+    var(--mouth),
+    var(--top--gradient),
+    var(--top),
+    var(--body),
+    var(--text--one),
+    var(--label--top),
+    var(--label--band),
+    var(--label--body),
+    var(--label--bottom);
+  background-color: var(--primary);
+  box-shadow:
+    0 0 1em -0.25em var(--shading--one) inset,
+    0 0 1em -0.25em var(--shading--two) inset
+    ;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50% / 5%;
+  transform-origin: 50% 100%;
+  animation: spin var(--speed) infinite linear, jump var(--speed) infinite ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    background-position:
+      calc(20% - var(--spin-offset)) 21em,
+      calc(20% - var(--spin-offset)) 20em,
+      calc(73% - var(--spin-offset)) 21em,
+      calc(80% - var(--spin-offset)) 20em,
+      calc(50% - var(--spin-offset)) 22.5em,
+      /* Eyes above! */
+      50% -1em,
+      50% -1em,
+      0 0,
+      /* Moving label */
+      calc(90% - var(--spin-offset)) 8em,
+      50% 27em,
+      50% 28em,
+      0% 30em,
+      50% 39em;
+  }
+  to {
+    background-position:
+      calc(20% + var(--spin-offset)) 21em,
+      calc(20% + var(--spin-offset)) 20em,
+      calc(73% + var(--spin-offset)) 21em,
+      calc(80% + var(--spin-offset)) 20em,
+      calc(50% + var(--spin-offset)) 22.5em,
+      /* Eyes above! */
+      50% -1em,
+      50% -1em,
+      0 0,
+      /* Moving label */
+      calc(90% + var(--spin-offset)) 8em,
+      50% 27em,
+      50% 28em,
+      0% 30em,
+      50% 39em;
+  }
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(var(--squished), var(--extended));
+  }
+  25%, 75% {
+    transform: translate(-50%, -50%) scale(1, 1);
+  }
+  50% {
+    transform: translate(-50%, -120%) scale(var(--extended), var(--squished));
+  }
+}
