@@ -1,0 +1,144 @@
+:root {
+  --unit: 1vmin;
+  --size: 9em;
+  --bg: hsl(145, 24%, 56%);
+  --gradient--dark: hsl(200, 46%, 29%);
+  --gradient--light: hsl(202, 29%, 40%);
+  --floor: hsl(82, 70%, 10%);
+  --eye: hsl(56, 89%, 34%);
+  --feature: hsl(0, 0%, 5%);
+  --primary: hsl(39, 91%, 31%);
+  --secondary: hsl(47, 34%, 56%);
+  --stroke: hsl(44, 84%, 15%)
+}
+
+html {
+  font-size: var(--unit);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: repeating-conic-gradient(var(--gradient--dark) 0deg 10deg, var(--gradient--light) 11deg 19deg, var(--gradient--dark) 20deg), var(--gradient--light);
+  min-height: 100vh;
+  transform: scale(0.75);
+  animation: pulse 1.5s infinite ease-in;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(1.25);
+  }
+}
+
+body:before {
+  --nose--left: radial-gradient(var(--feature) 0 65%, transparent 69% 100%) 20em 11em / 2em 2em;
+  --nose--right: radial-gradient(var(--feature) 0 65%, transparent 66% 100%) 27em 11em / 2em 2em;
+  --mouth: linear-gradient(var(--feature), var(--feature)) 50% 14em / 26em 1.5em;
+  --chin: radial-gradient(ellipse at 50% 0, var(--secondary) 0 50%, transparent 51% 100%) 50% 15em / 44.5em 11em;
+  --eye--left-white: radial-gradient(white 0 49%, transparent 50% 100%) 6em 0 / 14em 14em;
+  --eye--right-stroke: linear-gradient(var(--feature), var(--feature)) 33.5em 5.5em / 8em 2em;
+  --eye--left: radial-gradient(var(--stroke) 0 69%, transparent 70% 100%) 6em 0 / 14em 14em;
+  --eye--left-inner: radial-gradient(var(--primary) 0 59%, transparent 60% 100%) 6em 0 / 14em 14em;
+  --eye--right: radial-gradient(var(--stroke) 0 69%, transparent 70% 100%) 30em 0 / 14em 14em;
+  --eye--right-inner: radial-gradient(var(--primary) 0 59%, transparent 60% 100%) 30em 0 / 14em 14em;
+  --head-inner: radial-gradient(var(--primary) 0 63%, transparent 64% 100%) 50% 2em / 36em 22em;
+  --head: radial-gradient(var(--stroke) 0 69%, transparent 70% 100%) 50% 2em / 36em 22em;
+  --floor-line: linear-gradient(var(--floor), var(--floor)) 3em 32em / 44em 4em;
+  --body: linear-gradient(90deg, var(--stroke) 0 5%, var(--primary) 6% 19%, var(--stroke) 20% 25%, var(--secondary) 26% 74%, var(--stroke) 75% 80%, var(--primary) 81% 94%, var(--stroke) 95% 100%) 50% 100% / 26em 25em;
+  --leg--left-inner: radial-gradient(var(--primary) 0 55%, transparent 58% 100%) 0 100% / 20em 20em;
+  --leg--left: radial-gradient(var(--stroke) 0 67%, transparent 68% 100%) 0 100% / 20em 20em;
+  --leg--right-inner: radial-gradient(var(--primary) 0 55%, transparent 58% 100%) 100% 100% / 20em 20em;
+  --leg--right: radial-gradient(var(--stroke) 0 67%, transparent 68% 100%) 100% 100% / 20em 20em;
+  --foot--right-inner: radial-gradient(var(--primary) 0 52%, transparent 53% 100%) 10em 100% / 10em 6em;
+  --foot--right: radial-gradient(var(--stroke) 0 67%, transparent 68% 100%) 10em 100% / 10em 6em;
+  --foot--left-inner: radial-gradient(var(--primary) 0 52%, transparent 53% 100%) 30em 100% / 10em 6em;
+  --foot--left: radial-gradient(var(--stroke) 0 67%, transparent 68% 100%) 30em 100% / 10em 6em;
+  --leg-stroke--left: linear-gradient(45deg, transparent 0 45%, var(--stroke) 46% 54%, transparent 55% 100%) 8em 100% / 10em 12em;
+  --leg-stroke--right: linear-gradient(-45deg, transparent 0 45%, var(--stroke) 46% 54%, transparent 55% 100%) 32em 100% / 10em 12em;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background:
+    var(--nose--left),
+    var(--nose--right),
+    var(--mouth),
+    var(--chin),
+    var(--eye--left-white),
+    var(--eye--right-stroke),
+    var(--eye--left-inner),
+    var(--eye--right-inner),
+    var(--head-inner),
+    var(--head),
+    var(--eye--left),
+    var(--eye--right),
+    var(--floor-line),
+    var(--foot--right-inner),
+    var(--foot--right),
+    var(--foot--left-inner),
+    var(--foot--left),
+    var(--body),
+    var(--leg-stroke--left),
+    var(--leg-stroke--right),
+    var(--leg--left-inner),
+    var(--leg--left),
+    var(--leg--right-inner),
+    var(--leg--right);
+  background-repeat: no-repeat;
+  height: 35em;
+  width: 50em;
+  z-index: 2;
+  clip-path: inset(0 0 0 0);
+  -webkit-clip-path: inset(0 0 0 0);
+  border: 0;
+
+}
+
+body:after {
+  --ball--left: radial-gradient(black 0 65%, transparent 70% 100%) 1em 50% / calc(var(--size) * 0.35) calc(var(--size) * 0.35);
+  --ball--center: radial-gradient(black 0 65%, transparent 70% 100%) 50% 50% / calc(var(--size) * 0.35) calc(var(--size) * 0.35);
+  --ball--right: radial-gradient(black 0 65%, transparent 70% 100%) 8em 50% / calc(var(--size) * 0.35) calc(var(--size) * 0.35);
+  content: "";
+  border-radius: 50%;
+  height: var(--size);
+  width: var(--size);
+  position: absolute;
+  top: calc(50% - 10.5em);
+  left: calc(50% - 11.85em);
+  transform: translate(-50%, -50%);
+  background:
+    var(--ball--left),
+    var(--ball--center),
+    var(--ball--right);
+  background-color: hsl(100, 40%, 80%);
+  background-repeat: no-repeat;
+  filter: blur(1em) contrast(30);
+  animation: hypno 0.275s infinite ease-in-out, anger 1.5s infinite ease-in;
+  clip-path: circle(54%);
+  -webkit-clip-path: circle(54%);
+  z-index: 3;
+}
+
+@keyframes anger {
+  to {
+    background-color: hsl(100, 60%, 60%);
+  }
+}
+
+@keyframes hypno {
+  0%, 100% {
+    background-position:
+      15% 50%,
+      50% 80%,
+      80% 50%;
+  }
+  50% {
+    background-position:
+      15% 50%,
+      50% 1em,
+      80% 50%;
+  }
+}
