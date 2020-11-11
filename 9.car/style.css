@@ -60,7 +60,7 @@ body {
 
 body:before {
   --road-burm--left: linear-gradient(white 0 20%, var(--burm) 21% 40%, white 41% 60%, var(--burm) 61% 80%, white 81% 100%) 50% 50% / 36em 32em no-repeat;
-  --road-markings: linear-gradient(white 0 49%, transparent 51% 100%) 50% 0 / 2em 5em repeat-y;
+  --road-markings: linear-gradient(white 0 49%, transparent 51% 100%) 50% 0 / 1em 5em repeat-y;
   --road-edges: linear-gradient(90deg, white 0 2%, transparent 3% 97%, white 98% 100%) 50% 0 / 30em 100% no-repeat;
   --road: linear-gradient(0deg, var(--road--one) 0 49%, var(--road--two) 50% 100%) 50% 0 / 30em 10em repeat-y;
   --stone--one: linear-gradient(var(--rock--one) 0 60%, var(--rock--two) 61% 100%) 36% 20% / 4em 4em no-repeat;
@@ -215,7 +215,7 @@ body:after {
   top: 50%;
   left: 50%;
   transform-origin: 50% 50%;
-  transform: translate3d(-50%, -25%, 20em) scale(0.35);
+  transform: translate3d(-50%, -100%, 0) scale(0.12) translate3d(0, 500%, 50em);
   background:
     var(--shade--one),
     var(--shade--two),
@@ -288,7 +288,7 @@ body:after {
 
 @keyframes rock {
   50% {
-    transform: translate3d(-50%, -25%, 20em) scale(0.35) translate(0, -1.2em);
+    transform: translate3d(-50%, -100%, 0) scale(0.12) translate3d(0, 500%, 50em) translate(0, -1.2em);
   }
 }
 

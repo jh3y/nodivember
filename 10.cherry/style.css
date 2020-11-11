@@ -5,10 +5,12 @@
   --red--two: hsl(0, 60%, 40%);
   --red--three: hsl(0, 60%, 30%);
   --red--four: hsl(0, 60%, 90%);
+  --red--five: hsla(0, 60%, 90%, 0.5);
   --green--one: hsl(100, 50%, 50%);
   --green--two: hsl(100, 50%, 30%);
   --green--three: hsl(100, 50%, 20%);
-  --green--four: hsl(100, 50%, 90%);
+  --green--four: hsl(100, 50%, 70%);
+  --feature: hsl(0, 0%, 6%);
 }
 
 html {
@@ -19,20 +21,35 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  background: repeating-conic-gradient(hsla(0, 0%, 100%, 0.35) 0 9.5deg, transparent 10deg 19.5deg, hsla(0, 0%, 100%, 0.35) 20deg) 50% 35% / 200% 200% no-repeat;
   background-color: var(--bg);
 }
 
 body:after {
-  --head--shade: radial-gradient(var(--green--one) 0 15%,  var(--green--two), var(--green--three), transparent 66% 100%) 4em 4em / 9em 6em;
-  --head: radial-gradient(var(--green--three) 0 65%, transparent 66% 100%) 4em 4em / 10em 6em;
-  --shade--one: radial-gradient(var(--red--one), var(--red--two) 65%, transparent 66% 100%) 50% 100% / 24em 24em;
-  --shade--two: radial-gradient(transparent 0 64%, var(--red--four), transparent 66% 100%) 50% 100% / 24em 24em;
-  --body: radial-gradient(var(--red--one) 0 65%, transparent 66% 100%) 50% 100% / 24em 24em;
-  --stalk--shade-one: radial-gradient(circle at -10% 50%, transparent 0 55%, var(--green--three) 57% 59%, transparent 60% 100%) 6em 2em / 24em 48em;
-  --stalk--shade-two: radial-gradient(circle at -10% 50%, transparent 0 55%, var(--green--four), transparent 57% 100%) 6em 2em / 24em 48em;
-  --stalk: radial-gradient(circle at -10% 50%, transparent 0 50%, var(--green--two) 51% 59%, transparent 60% 100%) 6em 2em / 24em 48em;
+  --eye--left: radial-gradient(var(--feature) 0 65%, transparent 65.5% 100%) 4em 52em / 3em 3em;
+  --eye--left-shadow: radial-gradient(var(--red--four) 0 56%, transparent 80% 100%) 4em 52em / 3em 3em;
+  --eye--right: radial-gradient(var(--feature) 0 65%, transparent 65.5% 100%) 15.5em 52em / 3em 3em;
+  --eye--right-shadow: radial-gradient(var(--red--four) 0 56%, transparent 80% 100%) 15.5em 52em / 3em 3em;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 50%, transparent 50.5% 100%) 50% 54em / 7em 2em;
+  --mouth--shadow: radial-gradient(circle at 50% 0, var(--red--four) 0 40%, transparent 60% 100%) 50% 54em / 7em 2em;
+  --shade--four: radial-gradient(var(--red--four), transparent 25%) 4em 34em / 12em 12em;
+  --shade--three: radial-gradient(var(--red--four), transparent 50%) 0em 39em / 14em 14em;
+  --shade--two: radial-gradient(transparent 0 64%, var(--red--five), transparent 66% 100%) 50% 102% / 24em 24em;
+  --shade--one: radial-gradient(transparent, var(--red--two) 65%, transparent 66% 100%) 50% 102% / 24em 24em;
+  --body: radial-gradient(var(--red--one) 0 65%, transparent 66% 100%) 50% 102% / 24em 24em;
+  --stalk--shade-two: radial-gradient(circle at -10% 50%, transparent 0 55%, var(--green--four), transparent 57% 100%) 2em 2em / 24em 48em;
+  --stalk--shade-one: radial-gradient(circle at -10% 50%, transparent 0 55%, var(--green--three) 57% 59.5%, transparent 60% 100%) 2em 2em / 24em 48em;
+  --stalk: radial-gradient(circle at -10% 50%, transparent 0 50%, var(--green--two) 50.5% 59.5%, transparent 60% 100%) 2em 2em / 24em 48em;
   content: '';
   background:
+    var(--eye--left),
+    var(--eye--left-shadow),
+    var(--eye--right),
+    var(--eye--right-shadow),
+    var(--mouth),
+    var(--mouth--shadow),
+    var(--shade--four),
+    var(--shade--three),
     var(--shade--two),
     var(--shade--one),
     var(--body),
@@ -45,12 +62,61 @@ body:after {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 60em;
-  width: 30em;
+  width: 22.5em;
+  border-radius: 50% / 19%;
+}
+
+@keyframes spin {
+  0% {
+    background-position:
+      calc(4em - 22.5em) 52em,
+      calc(4em - 22.5em) 52em,
+      calc(15.5em - 22.5em) 52em,
+      calc(15.5em - 22.5em) 52em,
+      calc(50% - 22.5em) 54em,
+      calc(50% - 22.5em) 54em,
+      4em 34em,
+      0em 39em,
+      50% 102%,
+      50% 102%,
+      50% 102%,
+      2em 2em,
+      2em 2em,
+      2em 2em;
+  }
+  100% {
+    background-position:
+      calc(4em + 22.5em) 52em,
+      calc(4em + 22.5em) 52em,
+      calc(15.5em + 22.5em) 52em,
+      calc(15.5em + 22.5em) 52em,
+      calc(50% + 22.5em) 54em,
+      calc(50% + 22.5em) 54em,
+      4em 34em,
+      0em 39em,
+      50% 102%,
+      50% 102%,
+      50% 102%,
+      2em 2em,
+      2em 2em,
+      2em 2em;
+  }
+}
+
+body:active:after {
+  animation: spin 0.25s infinite linear;
 }
 
 body:before {
+  --eye--left: radial-gradient(var(--feature) 0 64%, transparent 64.5% 100%) 5em 30em / 2em 2em;
+  --eye--left-shadow: radial-gradient(var(--red--four) 0 60%, transparent 75% 100%) 5em 30em / 2em 2em;
+  --eye--right: radial-gradient(var(--feature) 0 64%, transparent 64.5% 100%) 13em 30em / 2em 2em;
+  --eye--right-shadow: radial-gradient(var(--red--four) 0 60%, transparent 75% 100%) 13em 30em / 2em 2em;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 50%, transparent 50.5% 100%) 50% 31em / 3em 2em;
+  --mouth--shade: radial-gradient(circle at 50% 0, var(--red--four) 0 40%, transparent 60% 100%) 50% 31em / 3em 2em;
   --shade--two: radial-gradient(transparent 0 64%, var(--red--four) 65%, transparent 66% 100%) 50% 100% / 18em 18em;
   --shade--one: radial-gradient(transparent, var(--red--three) 65%, transparent 66% 100%) 50% 100% / 18em 18em;
+  --shade--three: radial-gradient(var(--red--four) 0%, transparent 66% 100%) 5em 24em / 4em 4em;
   --body: radial-gradient(var(--red--one) 0 65%, transparent 66% 100%) 50% 100% / 18em 18em;
   --stalk: radial-gradient(ellipse at -10% 50%, transparent 0 50%, var(--green--three) 51% 59%, transparent 60% 100%) 4em 0em / 12em 38em;
   content: '';
@@ -58,6 +124,13 @@ body:before {
   height: 40em;
   width: 20em;
   background:
+    var(--eye--left),
+    var(--eye--left-shadow),
+    var(--eye--right),
+    var(--eye--right-shadow),
+    var(--mouth),
+    var(--mouth--shade),
+    var(--shade--three),
     var(--shade--two),
     var(--shade--one),
     var(--body),
@@ -67,11 +140,24 @@ body:before {
   left: 50%;
   transform-origin: 27% 11%;
   transform: translate(-65%, -70%) rotate(0deg);
-  /* animation: spin 2s infinite linear; */
+  animation: swing 2s infinite linear alternate;
 }
 
-@keyframes spin {
+@keyframes swing {
+  0% {
+    transform: translate(-65%, -70%) rotate(5deg);
+  }
+  100% {
+    transform: translate(-65%, -70%) rotate(-5deg);
+  }
+}
+
+body:active:before {
+  animation: orbit 0.5s infinite linear reverse;
+}
+
+@keyframes orbit {
   to {
-    transform: translate(-65%, -70%) rotate(-360deg);
+    transform: translate(-65%, -70%) rotate(360deg);
   }
 }
