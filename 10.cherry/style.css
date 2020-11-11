@@ -1,0 +1,77 @@
+:root {
+  --unit: 1vmin;
+  --bg: hsl(180, 50%, 50%);
+  --red--one: hsl(0, 60%, 50%);
+  --red--two: hsl(0, 60%, 40%);
+  --red--three: hsl(0, 60%, 30%);
+  --red--four: hsl(0, 60%, 90%);
+  --green--one: hsl(100, 50%, 50%);
+  --green--two: hsl(100, 50%, 30%);
+  --green--three: hsl(100, 50%, 20%);
+  --green--four: hsl(100, 50%, 90%);
+}
+
+html {
+  font-size: var(--unit);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+}
+
+body:after {
+  --head--shade: radial-gradient(var(--green--one) 0 15%,  var(--green--two), var(--green--three), transparent 66% 100%) 4em 4em / 9em 6em;
+  --head: radial-gradient(var(--green--three) 0 65%, transparent 66% 100%) 4em 4em / 10em 6em;
+  --shade--one: radial-gradient(var(--red--one), var(--red--two) 65%, transparent 66% 100%) 50% 100% / 24em 24em;
+  --shade--two: radial-gradient(transparent 0 64%, var(--red--four), transparent 66% 100%) 50% 100% / 24em 24em;
+  --body: radial-gradient(var(--red--one) 0 65%, transparent 66% 100%) 50% 100% / 24em 24em;
+  --stalk--shade-one: radial-gradient(circle at -10% 50%, transparent 0 55%, var(--green--three) 57% 59%, transparent 60% 100%) 6em 2em / 24em 48em;
+  --stalk--shade-two: radial-gradient(circle at -10% 50%, transparent 0 55%, var(--green--four), transparent 57% 100%) 6em 2em / 24em 48em;
+  --stalk: radial-gradient(circle at -10% 50%, transparent 0 50%, var(--green--two) 51% 59%, transparent 60% 100%) 6em 2em / 24em 48em;
+  content: '';
+  background:
+    var(--shade--two),
+    var(--shade--one),
+    var(--body),
+    var(--stalk--shade-two),
+    var(--stalk--shade-one),
+    var(--stalk);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60em;
+  width: 30em;
+}
+
+body:before {
+  --shade--two: radial-gradient(transparent 0 64%, var(--red--four) 65%, transparent 66% 100%) 50% 100% / 18em 18em;
+  --shade--one: radial-gradient(transparent, var(--red--three) 65%, transparent 66% 100%) 50% 100% / 18em 18em;
+  --body: radial-gradient(var(--red--one) 0 65%, transparent 66% 100%) 50% 100% / 18em 18em;
+  --stalk: radial-gradient(ellipse at -10% 50%, transparent 0 50%, var(--green--three) 51% 59%, transparent 60% 100%) 4em 0em / 12em 38em;
+  content: '';
+  position: absolute;
+  height: 40em;
+  width: 20em;
+  background:
+    var(--shade--two),
+    var(--shade--one),
+    var(--body),
+    var(--stalk);
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  transform-origin: 27% 11%;
+  transform: translate(-65%, -70%) rotate(0deg);
+  /* animation: spin 2s infinite linear; */
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-65%, -70%) rotate(-360deg);
+  }
+}
