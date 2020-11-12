@@ -1,0 +1,141 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+:root {
+  --unit: 1vmin;
+  --a5-width: 5.8em;
+  --a5-height: 8.3em;
+  --height: calc(4 * var(--a5-height));
+  --width: calc(4 * var(--a5-width));
+  --cover: hsl(0, 0%, 10%);
+  --paper: hsl(0, 0%, 98%);
+  --line: hsla(200, 25%, 30%, 0.5);
+  --bg: hsl(205, 30%, 24%);
+  --binding--one: hsl(0, 0%, 60%);
+  --binding--two: hsl(0, 0%, 80%);
+  --feature: hsl(0, 0%, 10%);
+  --shade: hsla(0, 0%, 10%, 1);
+}
+
+html {
+  font-size: var(--unit);
+}
+
+/* A5 is 5.8 x 8.3 */
+/* Scale that up to get the back cover */
+
+body {
+  --cover--rear: linear-gradient(var(--cover), var(--cover)) 50% 50% /
+    var(--width) var(--height) no-repeat;
+  --page: linear-gradient(var(--paper), var(--paper)) 50% 50% /
+    calc(var(--width) * 0.95) calc(var(--height) * 0.95) no-repeat;
+  --page--shade: linear-gradient(90deg, var(--shade), transparent) calc(50vw - (var(--width) * 0.5)) 50% /
+    calc(var(--width) * 0.95) calc(var(--height) * 0.95) no-repeat;
+  --page--lines: repeating-linear-gradient(transparent 0 2%, var(--line) 2.5%)
+    50% 50% / calc(var(--width) * 0.95) calc(var(--height) * 0.95) no-repeat;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 50%, transparent 51% 100%) 50% calc(50% + 1.5em) / 3em 2em no-repeat;
+  --binding: repeating-linear-gradient(
+      transparent 0 4%,
+      var(--binding--one) 4%,
+      var(--binding--two) 5%,
+      transparent 6% 8%
+    )
+    calc(50% - (var(--width) * 0.5)) 50% / 1em var(--height) no-repeat;
+  margin: 0;
+  padding: 0;
+  background:
+    var(--mouth),
+    var(--binding),
+    var(--page--lines),
+    var(--page--shade),
+    var(--page),
+    var(--cover--rear);
+  background-color: var(--bg);
+  perspective: 1000px;
+  min-height: 100vh;
+  transition: all 0.25s ease-in;
+}
+
+body:after {
+  --binding: repeating-linear-gradient(
+      transparent 0 4%,
+      var(--binding--one) 4%,
+      var(--binding--two) 5%,
+      transparent 6% 8%
+    )
+    calc(50% - (var(--width) * 0.5)) 50% / 1em var(--height) no-repeat;
+  content: 'Function is a NoSQL database. Scripts are embedded in which could also increased the Document Object Model DOM is one object. relying for Node. AngularJS and scripts to create and differ greatly in JavaScript library for writing services and response objects.Function is a NoSQL database. Scripts are embedded in which could also increased the Document Object Model DOM is one object. relying for Node. AngularJS and scripts to create and differ greatly in JavaScript library for writing services and response objects.Function is a NoSQL database. Scripts are embedded in which could also increased the Document Object Model DOM is one object. relying for Node. AngularJS and scripts to create and differ greatly in JavaScript library for writing services and response objects.Function is a NoSQL database. Scripts are embedded in which could also increased the Document Object Model DOM is one object. relying for Node. AngularJS and scripts to create and differ greatly in JavaScript library for writing services and response objects.Function is a NoSQL database. Scripts are embedded in which could also increased the Document Object Model DOM is one object. relying for Node. AngularJS and scripts to create and differ greatly in JavaScript library for writing services and response objects.Function is a NoSQL database. Scripts are embedded in which could also increased the Document Object Model DOM is one object. relying for Node. AngularJS and scripts to create and differ greatly in JavaScript library for writing services and response objects.Function is a NoSQL database. Scripts are embedded in which could also increased the Document Object Model DOM is one object. relying for Node. AngularJS and scripts to create and differ greatly in JavaScript library for writing services and response objects.';
+  height: var(--height);
+  width: var(--width);
+  background: var(--binding), var(--cover);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(0deg);
+  overflow: hidden;
+  transform-origin: 0 50%;
+  padding: 0 1em;
+  text-align: justify;
+  font-family: monospace;
+  color: black;
+  text-shadow: 1px 1px hsl(0, 0%, 40%);
+  transition: transform 0.25s ease-in;
+}
+
+body:hover:after {
+  transform: translate(-50%, -50%) rotateY(-20deg);
+}
+
+body:before {
+  --eye--left: radial-gradient(var(--feature) 0 65%, transparent 66% 100%) 0 50% / 3em 3em;
+  --pupil--left: radial-gradient(white 0 65%, transparent 66% 100%) 5% 30% / 0.75em 0.75em;
+  --eye--right: radial-gradient(var(--feature) 0 65%, transparent 66% 100%) 100% 50% / 3em 3em;
+  --pupil--right: radial-gradient(white 0 65%, transparent 66% 100%) 90% 30% / 0.75em 0.75em;
+  content: '';
+  height: calc(0.1 * var(--height));
+  width: calc(0.6 * var(--width));
+  background:
+    var(--pupil--left),
+    var(--eye--left),
+    var(--pupil--right),
+    var(--eye--right);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: blink 5s infinite;
+}
+
+@keyframes blink {
+  0%, 49%, 51%, 54%, 100% {
+    transform: translate(-50%, -50%) scaleY(1);
+  }
+  50%, 52% {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+}
+/* var(--mouth),
+    var(--binding),
+    var(--page--lines),
+    var(--page--shade),
+    var(--page),
+    var(--cover--rear); */
+body:active {
+  background-size:
+    3em 2em,
+    1em var(--height),
+    calc(var(--width) * 0.95) calc(var(--height) * 0.95),
+    1em calc(var(--height) * 0.95),
+    calc(var(--width) * 0.95) calc(var(--height) * 0.95),
+    var(--width) var(--height);
+}
+
+body:active:after {
+  transform: translate(-50%, -50%) rotateY(-180deg);
+}

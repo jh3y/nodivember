@@ -1,0 +1,213 @@
+:root {
+  --unit: 1vmin;
+  --size: 10em;
+  --width: var(--size);
+  --height: calc(6 * var(--size));
+  --bg: hsl(205, 30%, 24%);
+  --cones: hsla(0, 0%, 100%, 0.5);
+  --crayon--one: hsl(10, 50%, 50%);
+  --crayon--two: hsl(60, 50%, 50%);
+  --crayon--three: hsl(210, 50%, 50%);
+  --crayon--four: hsl(110, 50%, 50%);
+  --crayon--five: hsl(280, 50%, 50%);
+  --feature: hsl(0, 0%, 15%);
+  --shade--label: hsla(0, 0%, 100%, 0.5);
+  --shade--light: hsla(0, 0%, 100%, 0.5);
+  --cheek: hsl(10, 90%, 90%);
+  --pre: 0.2s;
+  --reach: 0.1s;
+  --burst: 0.15s;
+  --float: 0.5s;
+}
+
+html {
+  font-size: var(--unit);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: hsl(205, 30%, 14%);
+  overflow: hidden;
+}
+
+
+body:before {
+  --one: var(--crayon--two);
+  --two: var(--crayon--one);
+  --three: var(--crayon--three);
+  --four: var(--crayon--four);
+  --five: var(--crayon--five);
+  --shade--label: hsla(0, 0%, 100%, 0.5);
+  --shade--light: hsla(0, 0%, 100%, 0.5);
+  --cheek: hsl(10, 90%, 90%);
+  --cheek--left: radial-gradient(var(--cheek) 0 65%, transparent 70% 100%) 5% 25em / 1em 1em;
+  --cheek--right: radial-gradient(var(--cheek) 0 65%, transparent 70% 100%) 95% 25em / 1em 1em;
+  --pupil--left: radial-gradient(white 0 65%, transparent 66% 100%) 10% 22.5em / 0.75em 0.75em;
+  --eye--left: radial-gradient(var(--feature) 0 65%, transparent 66% 100%) 5% 22em / 3em 3em;
+  --pupil--right: radial-gradient(white 0 65%, transparent 66% 100%) 80% 22.5em / 0.75em 0.75em;
+  --eye--right: radial-gradient(var(--feature) 0 65%, transparent 66% 100%) 95% 22em / 3em 3em;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 50%, transparent 51% 100%) 50% 25em / 4em 2em;
+  --label--one: linear-gradient(var(--shade--label), var(--shade--label)) 50% 14em / 100% 2em;
+  --label--two: linear-gradient(var(--shade--label), var(--shade--label)) 50% 17em / 100% 1em;
+  --label--three: linear-gradient(var(--shade--label), var(--shade--label)) 50% 19em / 100% 32em;
+  --label--four: linear-gradient(var(--shade--label), var(--shade--label)) 50% 52em / 100% 1em;
+  --label--five: linear-gradient(var(--shade--label), var(--shade--label)) 50% 54em / 100% 2em;
+  --light: linear-gradient(90deg, transparent 25%, var(--shade--light), transparent 75%) 50% 0 / 50% 100%;
+  content: '';
+  height: var(--height);
+  width: var(--width);
+  background:
+    /* var(--cheek--right),
+    var(--cheek--left),
+    var(--mouth),
+    var(--light),
+    var(--pupil--right),
+    var(--eye--right),
+    var(--pupil--left),
+    var(--eye--left), */
+    var(--light),
+    var(--label--one),
+    var(--label--two),
+    var(--label--three),
+    var(--label--four),
+    var(--label--five)
+    ;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 4em -1em hsl(0, 0%, 10%) inset;
+  background-color: var(--three);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -50%);
+  -webkit-clip-path: polygon(35% 0, 55% 0, 90% 20%, 100% 20%, 100% 100%, 0 100%, 0 20%, 10% 20%);
+  clip-path: polygon(35% 0, 55% 0, 90% 20%, 100% 20%, 100% 100%, 0 100%, 0 20%, 10% 20%);
+  border-radius: 10% / 2%;
+}
+
+body:after {
+  --bag--right: linear-gradient(transparent 0 95%, black 96% 100%) 95% 22.5em / 3em 3em;
+  --bag--left: linear-gradient(transparent 0 95%, black 96% 100%) 5% 22.5em / 3em 3em;
+  --brow--right: linear-gradient(65deg, transparent 0 70%, black 71% 74%, transparent 75% 100%) 95% 22em / 3em 3em;
+  --brow--left: linear-gradient(-65deg, transparent 0 70%, black 71% 74%, transparent 75% 100%) 5% 22em / 3em 3em;
+  --teeth: linear-gradient(white, white) 50% 25.5em / 2em 0.25em;
+  --rage--mouth: linear-gradient(black, black) 50% 25.5em / 2em 2em;
+  --rage--right: linear-gradient(65deg, white 0 65%, transparent 66% 100%) 95% 22em / 3em 3em;
+  --rage--left: linear-gradient(-65deg, white 0 65%, transparent 66% 100%) 5% 22em / 3em 3em;
+  --cheek--right: radial-gradient(var(--cheek) 0 65%, transparent 70% 100%) 95% 25em / 1em 1em;
+  --cheek--left: radial-gradient(var(--cheek) 0 65%, transparent 70% 100%) 5% 25em / 1em 1em;
+  --mouth: radial-gradient(circle at 50% 0, var(--feature) 0 50%, transparent 51% 100%) 50% 25em / 4em 2em;
+  --pupil--right: radial-gradient(white 0 65%, transparent 66% 100%) 80% 22.5em / 0.75em 0.75em;
+  --eye--right: radial-gradient(var(--feature) 0 65%, transparent 66% 100%) 95% 22em / 3em 3em;
+  --pupil--left: radial-gradient(white 0 65%, transparent 66% 100%) 10% 22.5em / 0.75em 0.75em;
+  --eye--left: radial-gradient(var(--feature) 0 65%, transparent 66% 100%) 5% 22em / 3em 3em;
+  content: '';
+  height: var(--height);
+  width: var(--width);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 100%;
+  background:
+    var(--cheek--right),
+    var(--cheek--left),
+    var(--mouth),
+    var(--pupil--right),
+    var(--eye--right),
+    var(--pupil--left),
+    var(--eye--left);
+  /* background-color: red; */
+  background-repeat: no-repeat;
+}
+
+@keyframes reveal {
+  from {
+    background:
+      var(--cheek--right),
+      var(--cheek--left),
+      var(--mouth),
+      var(--pupil--right),
+      var(--eye--right),
+      var(--pupil--left),
+      var(--eye--left);
+      background-repeat: no-repeat;
+  }
+  to {
+    background:
+      var(--bag--right),
+      var(--bag--left),
+      var(--brow--right),
+      var(--brow--left),
+      var(--teeth),
+      var(--rage--mouth),
+      var(--rage--right),
+      var(--rage--left)
+    ;
+    background-repeat: no-repeat;
+  }
+}
+
+@keyframes pre {
+  to {
+    transform: translate(-50%, -50%) scaleX(1.1) scaleY(0.9);
+  }
+}
+
+@keyframes reach {
+  to {
+    background-color: var(--two);
+    transform: translate(-50%, -50%) scaleX(1) scaleY(1.1)
+  }
+}
+
+@keyframes burst {
+  to {
+    background-color: var(--one);
+    transform: translate(-50%, -50%) scaleX(1) scaleY(1) translate(0%, -35%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) scaleX(1) scaleY(1) translate(0%, -35%);
+  }
+  50% {
+    transform: translate(-50%, -50%) scaleX(1) scaleY(1) translate(0%, -32.5%);
+  }
+}
+
+@keyframes glow {
+  50% {
+    background-color: orange;
+  }
+}
+
+body:active {
+  animation:
+    flash var(--burst) var(--pre) both steps(1);
+}
+
+@keyframes flash {
+  to {
+    background-color: hsl(45, 50%, 80%);
+  }
+}
+
+body:active:after {
+  animation:
+    pre var(--pre) both ease-in,
+    reach var(--reach) var(--pre) both,
+    burst var(--burst) calc(var(--reach) + var(--pre)) both,
+    reveal var(--burst) var(--pre) both steps(1),
+    float var(--float) calc(var(--reach) + var(--pre) + var(--burst)) infinite linear;
+}
+body:active:before {
+  animation:
+    pre var(--pre) 0s both ease-in,
+    reach var(--reach) var(--pre) both,
+    burst var(--burst) calc(var(--reach) + var(--pre)) both,
+    float var(--float) calc(var(--reach) + var(--pre) + var(--burst)) infinite linear,
+    glow var(--float) calc(var(--reach) + var(--pre) + var(--burst)) infinite linear;
+}
